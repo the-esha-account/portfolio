@@ -8,10 +8,10 @@ function typeWriter(text, element, speed = 100) {
             i++;
             setTimeout(type, speed);
         } else {
-            const button = document.getElementById('cta-button');
-            if (button) {
+            const buttons = document.querySelectorAll('.hero-button');
+            buttons.forEach(button => {
                 button.classList.add('show');
-            }
+            });
         }
     }
     
@@ -21,7 +21,7 @@ function typeWriter(text, element, speed = 100) {
 document.addEventListener('DOMContentLoaded', function() {
     const typingElement = document.getElementById('typing-text');
     if (typingElement) {
-        const textToType = "Welcome to My Portfolio\nScroll down to explore my work and experience";
+        const textToType = "Hi, I'm Esha! What are you here to look at?";
         typeWriter(textToType, typingElement, 80);
     }
     const navLinks = document.querySelectorAll('.nav-link');
@@ -120,11 +120,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    const ctaButton = document.querySelector('.cta-button');
-    if (ctaButton) {
-        ctaButton.addEventListener('click', function(e) {
+    const heroButtons = document.querySelectorAll('.hero-button');
+    heroButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
             e.preventDefault();
-            const targetSection = document.querySelector('#about');
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
             if (targetSection) {
                 const navbarHeight = document.querySelector('.navbar').offsetHeight;
                 const targetPosition = targetSection.offsetTop - navbarHeight;
@@ -135,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         });
-    }
+    });
 });
 
 const style = document.createElement('style');
