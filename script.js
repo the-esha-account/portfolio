@@ -4,10 +4,21 @@ function typeWriter(text, element, speed = 100) {
     
     function type() {
         if (i < text.length) {
-            element.innerHTML += text.charAt(i);
+            let char = text.charAt(i);
+            if (char === '\n') {
+                element.innerHTML += '<br>';
+            } else {
+                element.innerHTML += char;
+            }
             i++;
             setTimeout(type, speed);
         } else {
+            // Add styling to the first line
+            const lines = element.innerHTML.split('<br>');
+            if (lines.length >= 2) {
+                element.innerHTML = `<span class="greeting">${lines[0]}</span><br>${lines[1]}`;
+            }
+            
             const buttons = document.querySelectorAll('.hero-button');
             console.log('Typing complete, found buttons:', buttons.length);
             buttons.forEach(button => {
@@ -23,7 +34,7 @@ function typeWriter(text, element, speed = 100) {
 document.addEventListener('DOMContentLoaded', function() {
     const typingElement = document.getElementById('typing-text');
     if (typingElement) {
-        const textToType = "Hi, I'm Esha! What are you here to look at?";
+        const textToType = "Hi, I'm Esha!\nWhat are you here to look at?";
         typeWriter(textToType, typingElement, 80);
     }
     const navLinks = document.querySelectorAll('.nav-link');
