@@ -44,7 +44,7 @@ function typePartialText(text, element, speed = 100) {
         } else {
             // After first part is typed, show the rest instantly
             const restOfText = "What are you here to look at?";
-            element.innerHTML = `<span class="greeting">${text}</span><br>${restOfText}`;
+            element.innerHTML = `<span class="greeting">Hi, I'm <span class="name">Esha</span>!</span><br>${restOfText}`;
             
             // Show buttons
             const buttons = document.querySelectorAll('.hero-button');
