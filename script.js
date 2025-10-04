@@ -9,7 +9,9 @@ function typeWriter(text, element, speed = 100) {
             setTimeout(type, speed);
         } else {
             const buttons = document.querySelectorAll('.hero-button');
+            console.log('Typing complete, found buttons:', buttons.length);
             buttons.forEach(button => {
+                console.log('Adding show class to button:', button);
                 button.classList.add('show');
             });
         }
