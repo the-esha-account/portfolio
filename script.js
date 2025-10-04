@@ -13,11 +13,13 @@ function typeWriter(text, element, speed = 100) {
             i++;
             setTimeout(type, speed);
         } else {
+            // Add styling to the first line
             const lines = element.innerHTML.split('<br>');
             if (lines.length >= 2) {
                 element.innerHTML = `<span class="greeting">${lines[0]}</span><br>${lines[1]}`;
             }
             
+            // Show buttons after typing completes
             const buttons = document.querySelectorAll('.hero-button');
             console.log('Typing complete, found buttons:', buttons.length);
             buttons.forEach(button => {
@@ -40,8 +42,11 @@ function typePartialText(text, element, speed = 100) {
             i++;
             setTimeout(type, speed);
         } else {
+            // After first part is typed, show the rest instantly
             const restOfText = "What are you here to look at?";
             element.innerHTML = `<span class="greeting">${text}</span><br>${restOfText}`;
+            
+            // Show buttons
             const buttons = document.querySelectorAll('.hero-button');
             buttons.forEach(button => {
                 button.classList.add('show');
