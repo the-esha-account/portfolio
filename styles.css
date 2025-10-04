@@ -94,9 +94,10 @@ body {
 
 .hero-content h1 {
     font-size: 1rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     font-weight: 400;
     font-family: 'Courier New', 'Monaco', 'Consolas', monospace;
+    line-height: 1.6;
 }
 
 .hero-content p {
@@ -107,7 +108,7 @@ body {
 }
 
 .typing-text {
-    min-height: 2.4em;
+    min-height: 1.6em;
     border-right: 2px solid white;
     animation: blink 1s infinite;
     white-space: pre-line;
@@ -120,18 +121,17 @@ body {
     51%, 100% { border-color: transparent; }
 }
 
-.cta-button {
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hero-button {
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.5s ease;
-}
-
-.cta-button.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.cta-button {
     display: inline-block;
     padding: 8px 16px;
     background: rgba(255, 255, 255, 0.2);
@@ -139,13 +139,17 @@ body {
     text-decoration: none;
     border-radius: 50px;
     border: 2px solid rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
     font-weight: 400;
     font-size: 0.6rem;
     font-family: 'Courier New', 'Monaco', 'Consolas', monospace;
 }
 
-.cta-button:hover {
+.hero-button.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-button:hover {
     background: rgba(255, 255, 255, 0.3);
     transform: translateY(-2px);
 }
