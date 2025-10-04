@@ -13,7 +13,6 @@ function typeWriter(text, element, speed = 100) {
             i++;
             setTimeout(type, speed);
         } else {
-            // Add styling to the first line
             const lines = element.innerHTML.split('<br>');
             if (lines.length >= 2) {
                 element.innerHTML = `<span class="greeting">${lines[0]}</span><br>${lines[1]}`;
@@ -31,13 +30,50 @@ function typeWriter(text, element, speed = 100) {
     type();
 }
 
+function typePartialText(text, element, speed = 100) {
+    let i = 0;
+    element.innerHTML = '';
+    
+    function type() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        } else {
+            const restOfText = "What are you here to look at?";
+            element.innerHTML = `<span class="greeting">${text}</span><br>${restOfText}`;
+            const buttons = document.querySelectorAll('.hero-button');
+            buttons.forEach(button => {
+                button.classList.add('show');
+            });
+        }
+    }
+    
+    type();
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const typingElement = document.getElementById('typing-text');
     if (typingElement) {
-        const textToType = "Hi, I'm Esha!\nWhat are you here to look at?";
-        typeWriter(textToType, typingElement, 80);
+        const firstPart = "Hi, I'm Esha!";
+        typePartialText(firstPart, typingElement, 80);
     }
-    const navLinks = document.querySelectorAll('.nav-link');
+    
+    const hamburger = document.getElementById('hamburger');
+    const sidebar = document.getElementById('sidebar');
+    const closeBtn = document.getElementById('close-btn');
+    
+    hamburger.addEventListener('click', function() {
+        sidebar.classList.add('open');
+        hamburger.classList.add('active');
+    });
+    
+    closeBtn.addEventListener('click', function() {
+        sidebar.classList.remove('open');
+        hamburger.classList.remove('active');
+    });
+    
+    const navLinks = document.querySelectorAll('.sidebar-link');
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -54,6 +90,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     top: targetPosition,
                     behavior: 'smooth'
                 });
+                
+                sidebar.classList.remove('open');
+                hamburger.classList.remove('active');
             }
         });
     });
