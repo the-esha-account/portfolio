@@ -48,36 +48,125 @@ body {
     text-decoration: none;
 }
 
-.nav-menu {
+.hamburger {
     display: flex;
-    list-style: none;
-    gap: 2rem;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
 }
 
-.nav-link {
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #e0e0e0;
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.hamburger:hover span {
+    background-color: #3498db;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background: #1a1a1a;
+    transition: right 0.3s ease;
+    z-index: 1001;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar.open {
+    right: 0;
+}
+
+.sidebar-content {
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #333;
+}
+
+.sidebar-header h3 {
+    color: #e0e0e0;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.close-btn {
+    color: #e0e0e0;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #3498db;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-item {
+    margin-bottom: 1rem;
+}
+
+.sidebar-link {
     color: #e0e0e0;
     text-decoration: none;
+    font-size: 1.1rem;
     font-weight: 500;
+    display: block;
+    padding: 0.5rem 0;
     transition: color 0.3s ease;
     position: relative;
 }
 
-.nav-link:hover {
+.sidebar-link:hover {
     color: #3498db;
 }
 
-.nav-link::after {
+.sidebar-link::after {
     content: '';
     position: absolute;
     width: 0;
     height: 2px;
-    bottom: -5px;
+    bottom: 0;
     left: 0;
     background-color: #3498db;
     transition: width 0.3s ease;
 }
 
-.nav-link:hover::after {
+.sidebar-link:hover::after {
     width: 100%;
 }
 
