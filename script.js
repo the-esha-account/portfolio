@@ -13,11 +13,8 @@ function typeWriter(text, element, speed = 100) {
             i++;
             setTimeout(type, speed);
         } else {
-            // Add styling to the first line
-            const lines = element.innerHTML.split('<br>');
-            if (lines.length >= 2) {
-                element.innerHTML = `<span class="greeting">${lines[0]}</span><br>${lines[1]}`;
-            }
+            // Add styling to make Esha pink
+            element.innerHTML = element.innerHTML.replace('Esha', '<span class="name">Esha</span>');
             
             // Show buttons after typing completes
             const buttons = document.querySelectorAll('.hero-button');
@@ -60,8 +57,8 @@ function typePartialText(text, element, speed = 100) {
 document.addEventListener('DOMContentLoaded', function() {
     const typingElement = document.getElementById('typing-text');
     if (typingElement) {
-        const firstPart = "Hi, I'm Esha!";
-        typePartialText(firstPart, typingElement, 80);
+        const textToType = "Hi, I'm Esha! What are you here to look at?";
+        typeWriter(textToType, typingElement, 80);
     }
     
     const hamburger = document.getElementById('hamburger');
