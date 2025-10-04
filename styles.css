@@ -199,16 +199,26 @@ body {
 
 .typing-text {
     min-height: 1.6em;
-    border-right: 2px solid white;
-    animation: blink 1s infinite;
     white-space: pre-line;
-    display: block;
+    display: inline-block;
     font-family: 'Courier New', 'Monaco', 'Consolas', monospace;
+    position: relative;
+}
+
+.typing-text::after {
+    content: '';
+    position: absolute;
+    right: -2px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: white;
+    animation: blink 1s infinite;
 }
 
 @keyframes blink {
-    0%, 50% { border-color: white; }
-    51%, 100% { border-color: transparent; }
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
 }
 
 .hero-buttons {
