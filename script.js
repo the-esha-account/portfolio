@@ -13,14 +13,40 @@ function typeWriter(text, element, speed = 100) {
             i++;
             setTimeout(type, speed);
         } else {
-            // Add styling to make Esha pink
-            element.innerHTML = element.innerHTML.replace('Esha', '<span class="name">Esha</span>');
-            
             // Show buttons after typing completes
             const buttons = document.querySelectorAll('.hero-button');
             console.log('Typing complete, found buttons:', buttons.length);
             buttons.forEach(button => {
                 console.log('Adding show class to button:', button);
+                button.classList.add('show');
+            });
+        }
+    }
+    
+    type();
+}
+
+function typeWithPinkName(text, element, speed = 100) {
+    let i = 0;
+    element.innerHTML = '';
+    
+    function type() {
+        if (i < text.length) {
+            let char = text.charAt(i);
+            if (char === '\n') {
+                element.innerHTML += '<br>';
+            } else {
+                element.innerHTML += char;
+            }
+            i++;
+            setTimeout(type, speed);
+        } else {
+            // After typing, wrap Esha in pink span
+            element.innerHTML = element.innerHTML.replace('Esha', '<span class="name">Esha</span>');
+            
+            // Show buttons after typing completes
+            const buttons = document.querySelectorAll('.hero-button');
+            buttons.forEach(button => {
                 button.classList.add('show');
             });
         }
