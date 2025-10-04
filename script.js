@@ -1,4 +1,29 @@
+function typeWriter(text, element, speed = 100) {
+    let i = 0;
+    element.innerHTML = '';
+    
+    function type() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        } else {
+            const button = document.getElementById('cta-button');
+            if (button) {
+                button.classList.add('show');
+            }
+        }
+    }
+    
+    type();
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+    const typingElement = document.getElementById('typing-text');
+    if (typingElement) {
+        const textToType = "Welcome to My Portfolio\nScroll down to explore my work and experience";
+        typeWriter(textToType, typingElement, 80);
+    }
     const navLinks = document.querySelectorAll('.nav-link');
     
     navLinks.forEach(link => {
@@ -23,11 +48,11 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
+            navbar.style.background = 'rgba(26, 26, 26, 0.98)';
+            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.4)';
         } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            navbar.style.background = 'rgba(26, 26, 26, 0.95)';
+            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
         }
     });
     
