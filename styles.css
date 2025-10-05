@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     line-height: 1.6;
     color: #e0e0e0;
     background-color: #1a1a1a;
@@ -185,7 +185,7 @@ body {
     font-size: 1rem;
     margin-bottom: 1rem;
     font-weight: 400;
-    font-family: 'Courier New', 'Monaco', 'Consolas', monospace;
+    font-family: inherit;
     line-height: 1.6;
 }
 
@@ -194,15 +194,16 @@ body {
     font-size: 0.7rem;
     margin-bottom: 1rem;
     opacity: 0.9;
-    font-family: 'Courier New', 'Monaco', 'Consolas', monospace;
+    font-family: inherit;
 }
 
 .typing-text {
     min-height: 1.6em;
     white-space: pre-line;
     display: inline-block;
-    font-family: 'Courier New', 'Monaco', 'Consolas', monospace;
+    font-family: inherit;
     position: relative;
+    color: #ffdf00;
 }
 
 .typing-text::after {
@@ -212,7 +213,7 @@ body {
     top: 0;
     bottom: 0;
     width: 2px;
-    background-color: white;
+    background-color: #ffdf00;
     animation: blink 1s infinite;
 }
 
@@ -241,7 +242,7 @@ body {
     border: 2px solid rgba(255, 255, 255, 0.3);
     font-weight: 400;
     font-size: 0.6rem;
-    font-family: 'Courier New', 'Monaco', 'Consolas', monospace;
+    font-family: inherit;
 }
 
 .hero-button.show {
