@@ -182,7 +182,7 @@ body {
 }
 
 .hero-content h1 {
-    font-size: 1rem;
+    font-size: 3rem;
     margin-bottom: 1rem;
     font-weight: 400;
     font-family: inherit;
@@ -203,6 +203,10 @@ body {
     display: inline-block;
     font-family: inherit;
     position: relative;
+    color: white;
+}
+
+.typing-text .name {
     color: #ffdf00;
 }
 
@@ -213,7 +217,7 @@ body {
     top: 0;
     bottom: 0;
     width: 2px;
-    background-color: #ffdf00;
+    background-color: white;
     animation: blink 1s infinite;
 }
 
