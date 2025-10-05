@@ -83,8 +83,8 @@ function typePartialText(text, element, speed = 100) {
 document.addEventListener('DOMContentLoaded', function() {
     const typingElement = document.getElementById('typing-text');
     if (typingElement) {
-        const textToType = "hi, I'm esha!";
-        typeWriter(textToType, typingElement, 80);
+        const textToType = "Hi, I'm Esha!";
+        typeWithPinkName(textToType, typingElement, 80);
     }
     
     const hamburger = document.getElementById('hamburger');
