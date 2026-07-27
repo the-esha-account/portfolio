@@ -368,37 +368,80 @@ h1, h2, h3 {
 }
 
 /* ============================================
-   EXPERIENCE (timeline)
+   EXPERIENCE (zigzag timeline)
    ============================================ */
 .timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 1.75rem;
-  max-width: 900px;
+  position: relative;
+  max-width: 880px;
+  margin: 0 auto;
+  padding-top: 0.5rem;
+}
+
+/* center spine */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background: var(--ink);
+  transform: translateX(-50%);
 }
 
 .timeline__item {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin-bottom: 2.75rem;
+}
+.timeline__item:last-child { margin-bottom: 0; }
+
+.timeline__item:nth-child(odd)  { justify-content: flex-start; }
+.timeline__item:nth-child(even) { justify-content: flex-end; }
+
+/* connector dot sits centered on the spine */
+.timeline__dot {
+  position: absolute;
+  top: 22px;
+  left: calc(50% - 10px);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid var(--ink);
+  z-index: 2;
+}
+.timeline__dot--yellow { background: var(--yellow); }
+.timeline__dot--pink   { background: var(--pink); }
+.timeline__dot--blue   { background: var(--blue); }
+.timeline__dot--green  { background: var(--green); }
+
+.timeline__card {
+  width: calc(50% - 45px);
   border: var(--border-thick);
   border-radius: var(--radius);
   overflow: hidden;
   background: var(--paper);
   color: var(--ink);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.timeline__card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0 var(--ink);
 }
 
 .timeline__header {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
   padding: 0.7rem 1rem;
   background: var(--ink);
 }
 
 .timeline__dates {
-  margin-left: auto;
   font-family: var(--font-mono);
   font-size: 0.78rem;
   font-weight: 600;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.85);
 }
 
 .timeline__body {
@@ -406,15 +449,17 @@ h1, h2, h3 {
 }
 
 .timeline__body h3 {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   margin-bottom: 0.9rem;
 }
 
 .timeline__at {
+  display: block;
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 400;
   color: var(--orange);
+  margin-top: 0.2rem;
 }
 
 .timeline__body ul {
@@ -425,8 +470,18 @@ h1, h2, h3 {
   gap: 0.5rem;
 }
 
-.timeline__body li { color: #333; }
+.timeline__body li { color: #333; font-size: 0.95rem; }
 .timeline__body strong { color: var(--ink); }
+
+@media (max-width: 780px) {
+  .timeline::before { left: 20px; }
+  .timeline__item:nth-child(odd),
+  .timeline__item:nth-child(even) {
+    justify-content: flex-start;
+  }
+  .timeline__dot { left: 11px; }
+  .timeline__card { width: calc(100% - 55px); margin-left: 55px; }
+}
 
 /* ============================================
    PROJECTS
