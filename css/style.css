@@ -299,6 +299,7 @@ h1, h2, h3 {
 .panel--green  { background: var(--green);  color: var(--paper-2); }
 .panel--blue   { background: var(--blue);   color: var(--paper-2); }
 .panel--pink   { background: var(--pink);   color: var(--paper-2); }
+.panel--orange { background: var(--orange); color: var(--paper-2); }
 .panel--cream  { background: var(--paper-2); color: var(--ink); }
 
 .panel__tag {
@@ -365,6 +366,67 @@ h1, h2, h3 {
   .about__grid { grid-template-columns: 1fr; }
   .photo-frame { max-width: 220px; }
 }
+
+/* ============================================
+   EXPERIENCE (timeline)
+   ============================================ */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  max-width: 900px;
+}
+
+.timeline__item {
+  border: var(--border-thick);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.timeline__header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1rem;
+  background: var(--ink);
+}
+
+.timeline__dates {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.75);
+}
+
+.timeline__body {
+  padding: 1.5rem 1.75rem;
+}
+
+.timeline__body h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.9rem;
+}
+
+.timeline__at {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--orange);
+}
+
+.timeline__body ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.timeline__body li { color: #333; }
+.timeline__body strong { color: var(--ink); }
 
 /* ============================================
    PROJECTS
