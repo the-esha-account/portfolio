@@ -144,6 +144,7 @@ h1, h2, h3 {
 .nav__links a[data-accent="pink"]:hover   { background: var(--pink);  color: var(--paper-2); }
 .nav__links a[data-accent="blue"]:hover   { background: var(--blue);  color: var(--paper-2); }
 .nav__links a[data-accent="orange"]:hover { background: var(--orange);color: var(--paper-2); }
+.nav__links a[data-accent="yellow"]:hover  { background: var(--yellow); color: var(--ink); }
 
 .nav__cta {
   font-family: var(--font-mono);
@@ -300,6 +301,7 @@ h1, h2, h3 {
 .panel--blue   { background: var(--blue);   color: var(--paper-2); }
 .panel--pink   { background: var(--pink);   color: var(--paper-2); }
 .panel--orange { background: var(--orange); color: var(--paper-2); }
+.panel--yellow { background: var(--yellow); color: var(--ink); }
 .panel--cream  { background: var(--paper-2); color: var(--ink); }
 
 .panel__tag {
@@ -481,6 +483,62 @@ h1, h2, h3 {
   }
   .timeline__dot { left: 11px; }
   .timeline__card { width: calc(100% - 55px); margin-left: 55px; }
+}
+
+/* ============================================
+   LEADERSHIP & ACTIVITIES (mini-card grid)
+   ============================================ */
+.leadership__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.mini-card {
+  border: var(--border-thick);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--paper);
+  color: var(--ink);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.mini-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.mini-card__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.9rem;
+  background: var(--ink);
+}
+
+.mini-card__label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+}
+
+.mini-card__body {
+  padding: 1.1rem 1.25rem;
+}
+
+.mini-card__body h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+}
+
+.mini-card__body p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #444;
 }
 
 /* ============================================
