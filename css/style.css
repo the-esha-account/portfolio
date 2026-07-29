@@ -638,7 +638,8 @@ h1, h2, h3 {
 
 .browser-card__links {
   display: flex;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
   font-family: var(--font-mono);
   font-weight: 600;
   font-size: 0.85rem;
@@ -646,7 +647,7 @@ h1, h2, h3 {
 .browser-card__links a,
 .browser-card__links span {
   border-bottom: 2px solid var(--ink);
-  cursor: default;
+  white-space: nowrap;
 }
 .browser-card__links a:hover,
 .browser-card__links span:hover {
