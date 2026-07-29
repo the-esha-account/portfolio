@@ -186,13 +186,16 @@ h1, h2, h3 {
   background: var(--ink);
 }
 
+.nav__mobile-menu { display: contents; }
+
 @media (max-width: 780px) {
   .nav__links, .nav__cta { display: none; }
   .nav__burger { display: flex; }
 
-  .nav.is-open .nav__links {
+  .nav.is-open .nav__mobile-menu {
     display: flex;
     flex-direction: column;
+    gap: 0.75rem;
     position: absolute;
     top: var(--nav-height);
     left: 0;
@@ -200,16 +203,16 @@ h1, h2, h3 {
     background: var(--paper);
     border-bottom: var(--border-thick);
     padding: 1rem;
-    margin: 0;
+  }
+  .nav.is-open .nav__links {
+    display: flex;
+    flex-direction: column;
     gap: 0.5rem;
+    margin: 0;
   }
   .nav.is-open .nav__links a { text-align: center; }
   .nav.is-open .nav__cta {
     display: block;
-    position: absolute;
-    top: calc(var(--nav-height) + 190px);
-    left: 1rem;
-    right: 1rem;
     text-align: center;
   }
 }
