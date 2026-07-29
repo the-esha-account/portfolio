@@ -8,14 +8,13 @@ if (burger && nav) {
     burger.setAttribute('aria-expanded', String(isOpen));
   });
 
-  // Close menu after tapping a link (mobile)
-  nav.querySelectorAll('.nav__links a').forEach((link) => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('is-open');
-      burger.setAttribute('aria-expanded', 'false');
-    });
+// Close menu after tapping a link (mobile)
+nav.querySelectorAll('.nav__links a, .nav__cta').forEach((link) => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('is-open');
+    burger.setAttribute('aria-expanded', 'false');
   });
-}
+});
 
 // Footer year
 const yearEl = document.getElementById('year');
