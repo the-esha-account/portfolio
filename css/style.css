@@ -624,8 +624,16 @@ h1, h2, h3 {
   font-weight: 600;
   font-size: 0.85rem;
 }
-.browser-card__links a { border-bottom: 2px solid var(--ink); }
-.browser-card__links a:hover { color: var(--orange); border-color: var(--orange); }
+.browser-card__links a,
+.browser-card__links span {
+  border-bottom: 2px solid var(--ink);
+  cursor: default;
+}
+.browser-card__links a:hover,
+.browser-card__links span:hover {
+  color: var(--orange);
+  border-color: var(--orange);
+}
 
 /* ============================================
    SKILLS
