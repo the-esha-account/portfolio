@@ -29,11 +29,15 @@ const sections = document.querySelectorAll('section[id]');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      history.replaceState(null, '', `#${entry.target.id}`);
+      if (entry.target.id === 'home') {
+        history.replaceState(null, '', window.location.pathname);
+      } else {
+        history.replaceState(null, '', `#${entry.target.id}`);
+      }
     }
   });
 }, {
-  rootMargin: '-50% 0px -50% 0px' // triggers when section crosses the middle of the screen
+  rootMargin: '-50% 0px -50% 0px'
 });
 
 sections.forEach((section) => observer.observe(section));
