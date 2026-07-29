@@ -135,6 +135,9 @@ h1, h2, h3 {
   font-weight: 600;
   font-size: 1.25rem;
   letter-spacing: -0.02em;
+  font-variant-ligatures: none;
+  -webkit-font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "calt" 0;
 }
 
 .nav__links {
@@ -218,12 +221,6 @@ h1, h2, h3 {
   .nav.is-open .nav__cta {
     display: block;
     text-align: center;
-  }
-}
-
-@media (max-width: 780px) {
-  .nav__logo {
-    letter-spacing: 0;
   }
 }
 
