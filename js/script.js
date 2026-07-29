@@ -22,3 +22,18 @@ const yearEl = document.getElementById('year');
 if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
+
+// Update URL hash based on which section is in view
+const sections = document.querySelectorAll('section[id]');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      history.replaceState(null, '', `#${entry.target.id}`);
+    }
+  });
+}, {
+  rootMargin: '-50% 0px -50% 0px' // triggers when section crosses the middle of the screen
+});
+
+sections.forEach((section) => observer.observe(section));
